@@ -1,0 +1,33 @@
+{
+  "name": "ts-binance",
+  "version": "0.0.1",
+  "description": "A TypeScript wrapper on top of Binance API",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo 'shame on me'; exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vieiralucas/ts-binance.git"
+  },
+  "keywords": [
+    "binance",
+    "exchange",
+    "blockchain",
+    "bitcoin",
+    "cryptocurrencies"
+  ],
+  "author": "Lucas Vieira <vieiralucas4@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vieiralucas/type-binance/issues"
+  },
+  "homepage": "https://github.com/vieiralucas/type-binance#readme",
+  "dependencies": {
+    "rxjs": "^6.0.0",
+    "ws": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/ws": "^4.0.2"
+  }
+}
