@@ -36,7 +36,7 @@ export function candlestick(
 ): Observable<Candle> {
   const observable = new Observable<Candle>(observer => {
     const ws = new WebSocket(
-      `wss://stream.binance.com:9443/ws/${pair}@kline_1m`
+      `wss://stream.binance.com:9443/ws/${pair}@kline_${interval}`
     )
     ws.on('error', observer.error.bind(observer))
     ws.on('close', observer.complete.bind(observer))
