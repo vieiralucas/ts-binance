@@ -53,18 +53,36 @@ export function candlestick(
   return observable
 }
 
+function toNumber(strNumber: string): number {
+  const asNumber = Number(strNumber)
+  if (Number.isNaN(asNumber)) {
+    throw new Error(`Could not convert ${strNumber} to Number`)
+  }
+
+  return asNumber
+}
+
+function toDate(strDate: string): Date {
+  const asDate = new Date(strDate)
+  if (Number.isNaN(asDate.getTime())) {
+    throw new Error(`Could not convert ${strDate} to Date`)
+  }
+
+  return asDate
+}
+
 function parseRawCandle(rawCandle: string): Candle {
   const json = JSON.parse(rawCandle)
 
   return {
     pair: json.s,
-    startTime: new Date(json.k.t),
-    endTime: new Date(json.k.T),
+    startTime: toDate(json.k.t),
+    endTime: toDate(json.k.T),
     interval: json.k.i,
-    openPrice: Number(json.k.o),
-    highPrice: Number(json.k.h),
-    closePrice: Number(json.k.c),
-    lowPrice: Number(json.k.l),
+    openPrice: toNumber(json.k.o),
+    highPrice: toNumber(json.k.h),
+    closePrice: toNumber(json.k.c),
+    lowPrice: toNumber(json.k.l),
     closed: json.k.x,
   }
 }
